@@ -28,6 +28,10 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <?php if(!is_front_page()) : ?>
+ <link rel="stylesheet" type="text/css" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/get_started.css" media="all" />
+ <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/get_started.js"></script>
+ <?php endif;?>
 <?php wp_head(); ?>
 </head>
 
@@ -62,7 +66,9 @@
     <?php 
 	$args = array( 'post_type' => 'home_slider', 'posts_per_page' => 10 );
 	$loop = new WP_Query( $args );
-		while ( $loop->have_posts() ) : $loop->the_post(); ?>
+		while ( $loop->have_posts() ) : $loop->the_post(); 
+		$feat_image1 = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+		?>
 		  <div class="item">
         <h1><?php the_title();?></h1>
         <?php the_content();?>
