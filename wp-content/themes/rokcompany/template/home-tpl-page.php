@@ -11,11 +11,14 @@ get_header(); ?>
 			while ( have_posts() ) : the_post(); ?>
 <!--End the top_BG-->
 <section class="what_wexpect" id="what_wexpect">
+ <div class="rates-banner">
+    <h2 class="large-heading"> rates </h2>
+  </div>
 <div class="container text-center">
-  <h2 class="hd_icn">What to Expect </h2>
+
   <div class="row">
   <?php 
-	$args = array( 'post_type' => 'service', 'posts_per_page' => 4, 'order' => 'ASC' );
+	$args = array( 'post_type' => 'rates', 'posts_per_page' => 4, 'order' => 'ASC' );
 	$loop = new WP_Query( $args );
 		while ( $loop->have_posts() ) : $loop->the_post(); 
 		$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
@@ -40,8 +43,12 @@ get_header(); ?>
   </section>
   <!--End the what_wexpect-->
   <section class="porfolio" id="porfolio">
+  
+  <div class="work-banner">
+    <h2 class="large-heading"> work </h2>
+  </div>
     <div class="container text-center">
-      <h2 class="hd_icn">Portfolio </h2>
+      
       <div class="portfolio_gallery">
         <div class="gallery  owlCarousel">
           <?php 
@@ -68,9 +75,13 @@ get_header(); ?>
     </div>
   </section>
   <!--End the porfolio-->
-  <section class="team" id="team">
+    <section class="team" id="team">
+  
+  <div class="team-banner">
+    <h2 class="large-heading"> team </h2>
+  </div>
   <div class="container">
-    <h2 class="hd_icn  text-center">Team </h2>
+   
      <?php 
 	$args = array( 'post_type' => 'team', 'posts_per_page' => 5, 'order' => 'ASC' );
 	$loop = new WP_Query( $args );
@@ -94,8 +105,13 @@ get_header(); ?>
 </section>
 <!--End the team-->
 <section class="process" id="process">
+
+
+ <div class="process-banner">
+    <h2 class="large-heading"> <?php the_field('process_title');?> </h2>
+  </div>
   <div class="container">
-    <h2 class="hd_icn  text-center"><?php the_field('process_title');?> </h2>
+ 
     <div class="process-warp">
       <div class="row">
       <?php
@@ -135,8 +151,12 @@ get_header(); ?>
 </section>
 <!--End the process-->
 <section class="strat_project" id="strat_project">
+
+<div class="project-banner">
+    <h2 class="large-heading"><?php the_field('project_title');?> </h2>
+  </div>
   <div class="container">
-    <h2 class="hd_icn  text-center"><?php the_field('project_title');?></h2>
+    
     <ul>
     <?php
 	// check if the repeater field has rows of data
@@ -153,6 +173,7 @@ get_header(); ?>
 	?>
     
     </ul>
+    
   </div>
 </section>
 <!--End the strat_project-->

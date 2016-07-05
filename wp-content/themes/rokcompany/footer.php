@@ -12,7 +12,13 @@
 ?>
 
 	<footer class="footer">
-   <div class="container">
+   <div class="container"><div class="footer_form row" id="contact">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+    <?php echo do_shortcode('[contact-form-7 id="116" title="Contact form Footer"]');?>
+    </div>
+    <div class="col-sm-1"></div>
+    </div>
      <ul class="social-icn">
 	 <li><a href="#"><i class="fa fa-instagram"></i></a></li>
 	 	 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -20,7 +26,7 @@
 
 	 </ul>
  
- <p>2016 ROK Desing Company. All Rights Reserved.</p>
+ <p>2016 Rok Design Company. All Rights Reserved.</p>
   </div>
  </footer>
 <!--End the Footer-->
@@ -35,11 +41,16 @@
 <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/custom.js"></script>
 <?php } else { ?>
 <div id="tve_notification_box"></div>
-
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery.min.js"></script>
 <!-- End of Async HubSpot Analytics Code -->
 <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/get_started2.js"></script>
 <script type="text/javascript">
-		document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+	
+var textarea = jQuery("#get-started-type");
+		textarea.attr("data-toggle","select-box");
+$("#submit").click(function() {
+  $("#get-started").submit();
+});
 		</script>
         <?php } ?>
 <?php wp_footer(); ?>

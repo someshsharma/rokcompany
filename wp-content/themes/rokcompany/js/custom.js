@@ -1,7 +1,7 @@
 $('.banner_sl').owlCarousel({
    navigation : true, // Show next and prev buttons
 	autoplay:true,
-	 items:1,
+	 items:4,
     responsive:{
         0:{
             items:1

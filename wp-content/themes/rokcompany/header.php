@@ -39,25 +39,27 @@
 
 <section class="top_bg">
 <div class="header">
-    <nav class="navbar navbar-fixed-top" role="navigation">
-      <div class="container">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-        <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo.png" alt=""> </a>
-        <div class="nav-sec">
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li><a href="#home" class="page-scroll">home</a></li>
-              <li><a href="#what_wexpect"  class="page-scroll">SERVICE</a></li>
-              <li ><a href="#porfolio" class="page-scroll">portfolio</a></li>
-              <li ><a href="#team" class="page-scroll">TEAM</a></li>
-              <li><a href="#process" class="page-scroll">Process</a></li>
-              <li><a href="#strat_project" class="page-scroll"> Start Your Project</a></li>
-            </ul>
-          </div>
+  <nav class="navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo.png" alt=""> </a>
+      <div class="nav-sec">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+      
+            <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>#what_wexpect"  class="page-scroll">SERVICE</a></li>
+            <li ><a href="<?php echo esc_url( home_url( '/' ) ); ?>#porfolio" class="page-scroll">portfolio</a></li>
+                 <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>#process" class="page-scroll">Process</a></li>
+            <li ><a href="<?php echo esc_url( home_url( '/' ) ); ?>#team" class="page-scroll">TEAM</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>#contact" class="page-scroll">Contact</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>#strat_project" class="page-scroll"> Start Your Project</a></li>
+          </ul>
         </div>
       </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
+</div>
+
   
   <!--End the header-->
   <?php if(is_front_page()) : ?>
@@ -69,10 +71,11 @@
 		while ( $loop->have_posts() ) : $loop->the_post(); 
 		$feat_image1 = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 		?>
-		  <div class="item">
-        <h1><?php the_title();?></h1>
-        <?php the_content();?>
-      </div>
+      
+    <div class="item"> <img src="<?php echo $feat_image1?>" alt="banner"> </div>
+    
+ 
+		  
         <?php
 		endwhile;
 		wp_reset_query();
@@ -81,31 +84,29 @@
     </div>
   </div>
   <!-- End Banner-sec-->
-  <div class="container top-offer-wap">
-    <div class="offer_box logo_dsign">
-      <figure><img src="<?php the_field('offer_one_icon');?>" alt=""></figure>
-      <?php the_field('offer_one_description');?>
-    </div>
-    <div class="what_we_offer">
-      <h2><?php the_field('what_we_offer');?></h2>
-    </div>
-    <div class="offer-items">
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="website_bx offer_box">
-           <?php the_field('offer_two_description');?>
-            <figure><img src="<?php the_field('offer_two_icon');?>" alt=""></figure>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="custom_gpic offer_box">
-            <?php the_field('offer_three_description');?>
-            <figure><img src="<?php the_field('offer_three_icon');?>" alt=""></figure>
-          </div>
-        </div>
+  <section class="services" id="services">
+  <div class="services-banner">
+    <h2 class="large-heading"> SERVICES </h2>
+  </div>
+  <div class="clearfix"></div>
+  <div class="container">
+  <?php $args = array( 'post_type' => 'service', 'posts_per_page' => -1, 'order' => 'ASC' );
+	$loop = new WP_Query( $args );
+		while ( $loop->have_posts() ) : $loop->the_post(); 
+		$feat_image2 = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
+    <div class="services-item">
+      <div class="item-inner">
+        <figure> <img src="<?php echo $feat_image2;?>" alt="sercices"></figure>
+        <h3><?php the_title();?></h3>
       </div>
     </div>
-    <!-- End the offer-items-->
+    <?php
+		endwhile;
+		wp_reset_query();
+	?>
+  
   </div>
+</section>
+  
   <?php endif;?>
 </section>

@@ -50,4 +50,26 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
     float: left;
     width: 100%;
 }
-/*.banner-sec{max-width:100%;}*/
+.footer_form{float: left;
+    width: 100%; margin-top:60px;}
+	textarea.form-control {
+    height: 83px;
+}
+.footer_form .wpcf7-submit {
+    background: #ff6600 none repeat scroll 0 0;
+    border: medium none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+}
+.footer {
+    background: #4d4d4d none repeat scroll 0 0;
+    padding: 20px 0 40px;
+    text-align: center;
+}
+.footer_form  h2{font-size:30px;}
+div.wpcf7-validation-errors {
+    border: 2px solid #f7e700;
+    float: left;
+    width: 100%;
+}
